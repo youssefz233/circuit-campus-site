@@ -97,10 +97,6 @@ textarea {
   display: block;
   width: 128px;
   height: auto;
-  filter:
-    drop-shadow(0 0 1px rgba(255, 255, 255, 0.98))
-    drop-shadow(0 0 5px rgba(255, 255, 255, 0.78))
-    drop-shadow(0 10px 18px rgba(5, 6, 7, 0.28));
 }
 
 .nav-links {
@@ -669,9 +665,8 @@ h1 {
   color: var(--ink);
   font-size: 96px;
   line-height: 0.98;
-  font-weight: 300;
-  font-family: var(--font-display);
-  font-optical-sizing: auto;
+  font-weight: 610;
+  font-family: var(--font-body);
 }
 
 h1 em {
