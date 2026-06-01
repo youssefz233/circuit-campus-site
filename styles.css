@@ -14,6 +14,8 @@
   --white: #ffffff;
   --shadow: 0 24px 80px rgba(16, 29, 56, 0.12);
   --soft-shadow: 0 18px 50px rgba(18, 35, 72, 0.08);
+  --font-body: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
 }
 
 * {
@@ -33,9 +35,7 @@ body {
   overflow-x: hidden;
   color: var(--text);
   background: #fff;
-  font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+  font-family: var(--font-body);
   letter-spacing: 0;
 }
 
@@ -650,9 +650,9 @@ textarea {
 .eyebrow {
   margin: 0 0 14px;
   color: var(--blue);
-  font-size: 13px;
-  font-weight: 880;
-  letter-spacing: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
@@ -669,13 +669,15 @@ h1 {
   color: var(--ink);
   font-size: 96px;
   line-height: 0.98;
-  font-weight: 610;
+  font-weight: 300;
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
 }
 
 h1 em {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-style: italic;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .hero-copy {
@@ -786,9 +788,11 @@ h1 em {
   max-width: 550px;
   margin: 12px 0 22px;
   color: var(--ink);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: 36px;
-  font-weight: 500;
+  font-weight: 400;
+  font-style: italic;
+  font-optical-sizing: auto;
   line-height: 1.05;
 }
 
@@ -1207,6 +1211,9 @@ h1 em {
   max-width: 370px;
   font-size: 52px;
   line-height: 0.96;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-optical-sizing: auto;
 }
 
 .community-poster small {
@@ -1351,7 +1358,9 @@ h2 {
   color: var(--ink);
   font-size: 64px;
   line-height: 1;
-  font-weight: 940;
+  font-weight: 700;
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
 }
 
 .section-heading p,
@@ -1652,7 +1661,7 @@ h2 {
   border: 2px solid rgba(80, 150, 226, 0.28);
   border-radius: 50%;
   color: #3572bc;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-display);
   font-size: 19px;
   font-style: italic;
 }
@@ -2234,13 +2243,14 @@ h2 {
   display: inline-flex;
   min-height: 28px;
   align-items: center;
-  margin-bottom: 70px;
+  margin-bottom: 16px;
   padding: 0 10px;
   border-radius: 999px;
   background: rgba(21, 94, 239, 0.1);
   color: var(--blue);
   font-size: 12px;
   font-weight: 850;
+  letter-spacing: 0.08em;
 }
 
 .mission-tag.green {
@@ -3480,5 +3490,175 @@ body.modal-open {
   .onboarding-back {
     min-height: 38px;
     justify-content: flex-start;
+  }
+}
+
+/* ─── Scroll reveal ──────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--reveal-i, 0) * 90ms);
+}
+
+.reveal.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ─── Sticky conversion bar ──────────────────────────────────── */
+.sticky-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 24px;
+  min-height: 56px;
+  background: var(--ink);
+  color: #fff;
+  transform: translateY(-100%);
+  transition: transform 0.36s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 32px rgba(6, 8, 13, 0.28);
+}
+
+.sticky-bar.is-visible {
+  transform: translateY(0);
+}
+
+.sticky-bar-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.78);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sticky-bar-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.sticky-bar-cta:hover {
+  background: var(--blue-deep);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 480px) {
+  .sticky-bar {
+    padding: 0 16px;
+  }
+
+  .sticky-bar-label {
+    font-size: 12px;
+  }
+}
+
+/* ─── Bottom CTA section ─────────────────────────────────────── */
+.cta-section {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(21, 94, 239, 0.22), transparent 48%),
+    radial-gradient(ellipse at 80% 20%, rgba(123, 97, 255, 0.14), transparent 40%),
+    #050810;
+  color: #fff;
+  text-align: center;
+}
+
+.cta-inner {
+  display: grid;
+  place-items: center;
+  gap: 28px;
+  width: min(860px, 100%);
+  margin: 0 auto;
+}
+
+.cta-section .eyebrow {
+  color: #78a5ff;
+}
+
+.cta-section h2 {
+  color: #fff;
+  font-size: 72px;
+  line-height: 1;
+  font-weight: 300;
+}
+
+.cta-section h2 em {
+  font-style: italic;
+  font-weight: 400;
+  color: #78a5ff;
+}
+
+.cta-body {
+  max-width: 600px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.cta-primary-btn {
+  min-height: 60px;
+  padding: 0 36px;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 700;
+  background: #fff;
+  color: var(--ink);
+  border: 0;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.cta-primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.36);
+}
+
+@media (max-width: 980px) {
+  .cta-section h2 {
+    font-size: 56px;
+  }
+}
+
+@media (max-width: 680px) {
+  .cta-section h2 {
+    font-size: 40px;
+  }
+
+  .cta-body {
+    font-size: 16px;
+  }
+
+  .cta-primary-btn {
+    width: 100%;
   }
 }

@@ -199,3 +199,49 @@ document.addEventListener("keydown", (event) => {
 });
 
 showOnboardingStep(0);
+
+// ── Scroll reveal ────────────────────────────────────────────────
+const revealEls = document.querySelectorAll(".reveal");
+
+if (revealEls.length) {
+  // Assign stagger index per sibling group so cards fan in together
+  const groups = {};
+  revealEls.forEach((el) => {
+    const key = el.parentElement;
+    if (!groups.has) groups.has = (k) => Object.prototype.hasOwnProperty.call(groups, k);
+    groups[key] = (groups[key] || 0);
+    el.style.setProperty("--reveal-i", groups[key]);
+    groups[key]++;
+  });
+
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-revealed");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08, rootMargin: "0px 0px -32px 0px" }
+  );
+
+  revealEls.forEach((el) => revealObserver.observe(el));
+}
+
+// ── Sticky bar ───────────────────────────────────────────────────
+const stickyBar = document.getElementById("sticky-bar");
+const heroSection = document.querySelector(".hero");
+
+if (stickyBar && heroSection) {
+  const stickyObserver = new IntersectionObserver(
+    (entries) => {
+      const heroVisible = entries[0].isIntersecting;
+      stickyBar.classList.toggle("is-visible", !heroVisible);
+      stickyBar.setAttribute("aria-hidden", heroVisible ? "true" : "false");
+    },
+    { threshold: 0, rootMargin: "0px 0px -80px 0px" }
+  );
+
+  stickyObserver.observe(heroSection);
+}

@@ -9,9 +9,17 @@
       content="Circuit builds and manages college creator programs for consumer brands: student ambassadors, UGC, school pods, tracked actions, and field intelligence."
     />
     <link rel="icon" href="assets/circuit-mark.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,800;1,9..144,300;1,9..144,400;1,9..144,700;1,9..144,800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="sticky-bar" id="sticky-bar" aria-hidden="true">
+      <span class="sticky-bar-label">Circuit — College creator programs</span>
+      <button class="sticky-bar-cta" type="button" data-onboarding-open>Build my layer</button>
+    </div>
+
     <header class="site-header" aria-label="Primary">
       <a class="brand" href="#top" aria-label="Circuit home">
         <img class="brand-logo" src="assets/circuit-wordmark.png" alt="Circuit" />
@@ -71,12 +79,12 @@
             </p>
 
             <div class="loop-map" aria-label="Circuit community activation flow">
-              <article class="loop-node community-node">
+              <article class="loop-node community-node reveal">
                 <span>01</span>
                 <strong>Build the pod</strong>
                 <p>Accepted students, campus leads, school roles, and group-chat momentum.</p>
               </article>
-              <article class="loop-node tools-node">
+              <article class="loop-node tools-node reveal">
                 <span>02</span>
                 <strong>Drop missions</strong>
                 <p>Briefs live where students already coordinate.</p>
@@ -87,7 +95,7 @@
                   <img src="assets/logos/slack-new.jpg" alt="Slack" />
                 </div>
               </article>
-              <article class="loop-node social-node">
+              <article class="loop-node social-node reveal">
                 <span>03</span>
                 <strong>Activate content</strong>
                 <p>Students post UGC, QR pushes, story links, shelf checks, and campus drops.</p>
@@ -98,7 +106,7 @@
                   <img src="assets/logos/snapchat-logo.png" alt="Snapchat" />
                 </div>
               </article>
-              <article class="loop-node proof-node">
+              <article class="loop-node proof-node reveal">
                 <span>04</span>
                 <strong>Return the signal</strong>
                 <p>Proof screenshots, live links, creator scores, objections, and next-school reads.</p>
@@ -155,7 +163,7 @@
         </div>
 
         <div class="system-showcase" aria-label="Circuit operating system preview">
-          <article class="system-window campaign-window">
+          <article class="system-window campaign-window reveal">
             <header>
               <h3>Program Setup</h3>
               <span class="window-status active">Active</span>
@@ -207,7 +215,7 @@
             </div>
           </article>
 
-          <article class="system-window review-window">
+          <article class="system-window review-window reveal">
             <header>
               <h3>Student Files</h3>
               <span class="window-status approved">5 matched</span>
@@ -258,7 +266,7 @@
             </div>
           </article>
 
-          <article class="system-window verify-window">
+          <article class="system-window verify-window reveal">
             <header>
               <h3>Creator Ops</h3>
               <span class="window-status files">Live chat</span>
@@ -342,22 +350,22 @@
         </div>
 
         <div class="mission-grid">
-          <article class="mission-card">
+          <article class="mission-card reveal">
             <span class="mission-tag">UGC</span>
             <h3>Study routine clips</h3>
             <p>Students film raw vertical content around real use cases: library, dorm, gym, club, apartment, and finals week.</p>
           </article>
-          <article class="mission-card">
+          <article class="mission-card reveal">
             <span class="mission-tag green">Field</span>
             <h3>Retail checks</h3>
             <p>Students document shelf availability, pricing, placement, competitors, stockouts, and store-level friction.</p>
           </article>
-          <article class="mission-card">
+          <article class="mission-card reveal">
             <span class="mission-tag gold">Social</span>
             <h3>Tracked pushes</h3>
             <p>Every nano gets a personal code, link, QR, sample path, or store locator so action is visible by school.</p>
           </article>
-          <article class="mission-card">
+          <article class="mission-card reveal">
             <span class="mission-tag red">Insight</span>
             <h3>Student field notes</h3>
             <p>Turn comments, objections, phrases, screenshots, group-chat reactions, and campus context into a decision-grade read.</p>
@@ -376,29 +384,37 @@
           </p>
         </div>
         <div class="deliverables">
-          <div class="deliverable-row">
+          <div class="deliverable-row reveal">
             <span></span>
             <p>Vetted student bench and top-performer list</p>
           </div>
-          <div class="deliverable-row">
+          <div class="deliverable-row reveal">
             <span></span>
             <p>School pods with campus leads and roles</p>
           </div>
-          <div class="deliverable-row">
+          <div class="deliverable-row reveal">
             <span></span>
             <p>UGC library and proof submission archive</p>
           </div>
-          <div class="deliverable-row">
+          <div class="deliverable-row reveal">
             <span></span>
             <p>Codes, links, QR paths, and mission templates</p>
           </div>
-          <div class="deliverable-row">
+          <div class="deliverable-row reveal">
             <span></span>
             <p>Final recommendation on schools, hooks, creators, and incentives</p>
           </div>
         </div>
       </section>
 
+      <section class="section cta-section" aria-labelledby="cta-title">
+        <div class="cta-inner">
+          <p class="eyebrow">Ready to launch</p>
+          <h2 id="cta-title">Your brand's college layer is<br><em>one sprint away.</em></h2>
+          <p class="cta-body">Tell us your target schools, timeline, and activation goal. We'll map the right student bench and show you exactly what a Circuit program looks like for your category.</p>
+          <button class="primary-button cta-primary-btn" type="button" data-onboarding-open>Build my college layer</button>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
