@@ -1440,7 +1440,7 @@ h2 {
   background:
     radial-gradient(circle at 10% 24%, rgba(21, 94, 239, 0.09), transparent 28%),
     radial-gradient(circle at 90% 18%, rgba(123, 97, 255, 0.08), transparent 30%),
-    linear-gradient(180deg, #f8fbff 0%, #f6f9ff 48%, #ffffff 100%);
+    linear-gradient(180deg, #ffffff 0%, #f8fbff 12%, #f6f9ff 48%, #ffffff 100%);
 }
 
 .system-section::before {
