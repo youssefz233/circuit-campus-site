@@ -37,10 +37,11 @@ body {
   background:
     linear-gradient(180deg,
       #ffffff 0%,
-      #f9fbff 18%,
-      #f3f7ff 42%,
-      #f6f9ff 66%,
-      #ffffff 88%
+      #ffffff 22%,
+      #f9fbff 38%,
+      #f5f8ff 56%,
+      #f8fbff 74%,
+      #ffffff 90%
     );
   font-family: var(--font-body);
   letter-spacing: 0;
@@ -217,7 +218,7 @@ textarea {
   min-height: 738px;
   overflow: hidden;
   padding: 198px 24px 46px;
-  background: #fff;
+  background: transparent;
 }
 
 .hero::before {
