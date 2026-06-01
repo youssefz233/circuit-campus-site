@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="4 4 16 16" role="img" aria-label="Slack">
+  <path d="M8 5.2a2 2 0 0 1 4 0v4.2H8V5.2Z" fill="#36C5F0" />
+  <path d="M18.8 8a2 2 0 0 1 0 4h-4.2V8h4.2Z" fill="#2EB67D" />
+  <path d="M16 18.8a2 2 0 0 1-4 0v-4.2h4v4.2Z" fill="#ECB22E" />
+  <path d="M5.2 16a2 2 0 0 1 0-4h4.2v4H5.2Z" fill="#E01E5A" />
+</svg>

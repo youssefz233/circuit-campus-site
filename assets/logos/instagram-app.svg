@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Instagram">
+  <defs>
+    <radialGradient id="igYellow" cx="16%" cy="98%" r="72%">
+      <stop offset="0" stop-color="#FEDA75"/>
+      <stop offset=".34" stop-color="#FA7E1E"/>
+      <stop offset=".58" stop-color="#D62976"/>
+      <stop offset="1" stop-color="#962FBF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="igMain" x1="8" x2="58" y1="60" y2="4" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FEDA75"/>
+      <stop offset=".24" stop-color="#FA7E1E"/>
+      <stop offset=".52" stop-color="#D62976"/>
+      <stop offset=".76" stop-color="#962FBF"/>
+      <stop offset="1" stop-color="#4F5BD5"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#igMain)"/>
+  <rect width="64" height="64" rx="14" fill="url(#igYellow)"/>
+  <rect x="14" y="14" width="36" height="36" rx="12" fill="none" stroke="#fff" stroke-width="5"/>
+  <circle cx="32" cy="32" r="9" fill="none" stroke="#fff" stroke-width="5"/>
+  <circle cx="43.5" cy="20.5" r="3.8" fill="#fff"/>
+</svg>
