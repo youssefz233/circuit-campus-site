@@ -8,7 +8,7 @@
       name="description"
       content="Circuit builds and manages college creator programs for consumer brands: student ambassadors, UGC, school pods, tracked actions, and field intelligence."
     />
-    <link rel="icon" href="assets/circuit-wordmark.png" type="image/png" />
+    <link rel="icon" href="assets/circuit-mark.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -43,8 +43,8 @@
             launch channel brands can actually scale.
           </p>
           <div class="hero-actions" aria-label="Primary actions">
-            <a class="primary-button" href="mailto:hello@circuitcampus.com">Build my college layer</a>
-            <a class="ghost-button" href="#pilot">View the pilot</a>
+            <button class="primary-button" type="button" data-onboarding-open>Build my college layer</button>
+            <a class="ghost-button" href="#system">See how it works</a>
           </div>
         </div>
       </section>
@@ -399,47 +399,6 @@
         </div>
       </section>
 
-      <section class="section pilot-section" id="pilot" aria-labelledby="pilot-title">
-        <div class="pilot-panel">
-          <div>
-            <p class="eyebrow">Founding pilot</p>
-            <h2 id="pilot-title">30-Day College Channel Buildout</h2>
-            <p>
-              Built for founder-led consumer brands that want a real college read before
-              committing to a larger back-to-school activation.
-            </p>
-          </div>
-          <div class="price-card">
-            <span>First pilots</span>
-            <strong>$7.5K-$12K</strong>
-            <p>Setup, first-wave activation, UGC, field notes, tracked actions, and final report.</p>
-          </div>
-        </div>
-
-        <div class="pilot-grid">
-          <div>
-            <strong>100-250</strong>
-            <span>applicants or recruited candidates</span>
-          </div>
-          <div>
-            <strong>50-100</strong>
-            <span>accepted ambassadors and nanos</span>
-          </div>
-          <div>
-            <strong>5-10</strong>
-            <span>school pods or priority clusters</span>
-          </div>
-          <div>
-            <strong>10-25</strong>
-            <span>UGC clips or raw content assets</span>
-          </div>
-        </div>
-
-        <div class="final-cta">
-          <h2>Build the college layer before everyone else rents it.</h2>
-          <a class="primary-button" href="mailto:hello@circuitcampus.com">Send the one-pager</a>
-        </div>
-      </section>
     </main>
 
     <footer class="site-footer">
@@ -448,6 +407,161 @@
       </a>
       <p>College creator programs for consumer brands.</p>
     </footer>
+
+    <div class="onboarding-shell" data-onboarding hidden>
+      <div class="onboarding-backdrop" data-onboarding-close></div>
+      <section
+        class="onboarding-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="onboarding-title"
+        aria-describedby="onboarding-description"
+      >
+        <header class="onboarding-header">
+          <div class="step-kicker">
+            <span></span>
+            <strong data-step-label>Step 1</strong>
+          </div>
+          <button class="onboarding-close" type="button" data-onboarding-close aria-label="Close onboarding">
+            &times;
+          </button>
+        </header>
+
+        <form class="onboarding-form" data-onboarding-form novalidate>
+          <div class="onboarding-progress" aria-hidden="true">
+            <span class="is-active"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="onboarding-step is-active" data-step="0">
+            <p class="modal-eyebrow">College layer intake</p>
+            <h2 id="onboarding-title">Let’s build your campus channel.</h2>
+            <p id="onboarding-description">
+              A few quick details so Circuit can map the right student bench, schools, and launch path.
+            </p>
+            <div class="form-grid two-column">
+              <label>
+                <span>First name *</span>
+                <input name="firstName" type="text" autocomplete="given-name" placeholder="Youssef" required />
+              </label>
+              <label>
+                <span>Last name *</span>
+                <input name="lastName" type="text" autocomplete="family-name" placeholder="Zouaoui" required />
+              </label>
+            </div>
+            <label>
+              <span>Work email *</span>
+              <input name="email" type="email" autocomplete="email" placeholder="you@brand.com" required />
+            </label>
+          </div>
+
+          <div class="onboarding-step" data-step="1">
+            <p class="modal-eyebrow">Brand details</p>
+            <h2>What are we launching on campus?</h2>
+            <p>Tell us what students should care about, then we’ll translate it into missions.</p>
+            <label>
+              <span>Company *</span>
+              <input name="company" type="text" autocomplete="organization" placeholder="Brand name" required />
+            </label>
+            <label>
+              <span>Website *</span>
+              <input name="website" type="url" inputmode="url" placeholder="https://brand.com" required />
+            </label>
+            <label>
+              <span>What do you sell? *</span>
+              <textarea name="product" rows="3" placeholder="A short line on the product, audience, and current channel." required></textarea>
+            </label>
+          </div>
+
+          <div class="onboarding-step" data-step="2">
+            <p class="modal-eyebrow">Program goal</p>
+            <h2>What should Circuit activate first?</h2>
+            <p>Select the starting motion. We can layer the rest in after the first sprint.</p>
+            <div class="choice-list" data-choice-group="goal">
+              <label class="choice-row">
+                <input type="radio" name="goal" value="Build an ambassador bench" required />
+                <span>
+                  <strong>Build an ambassador bench</strong>
+                  <small>Recruit, score, and organize student leads by school.</small>
+                </span>
+              </label>
+              <label class="choice-row">
+                <input type="radio" name="goal" value="Launch UGC missions" />
+                <span>
+                  <strong>Launch UGC missions</strong>
+                  <small>Turn creators into repeatable raw content and campus proof.</small>
+                </span>
+              </label>
+              <label class="choice-row">
+                <input type="radio" name="goal" value="Run campus insights" />
+                <span>
+                  <strong>Run campus insights</strong>
+                  <small>Collect field notes, objections, screenshots, and student reads.</small>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="onboarding-step" data-step="3">
+            <p class="modal-eyebrow">Launch shape</p>
+            <h2>Where should the first wave happen?</h2>
+            <p>Keep it focused. The cleanest pilots usually start with a tight campus cluster.</p>
+            <label>
+              <span>Priority schools or regions *</span>
+              <input name="campuses" type="text" placeholder="UCLA, USC, NYU, SEC schools, or not sure yet" required />
+            </label>
+            <div class="choice-list" data-choice-group="timeline">
+              <label class="choice-row compact-choice">
+                <input type="radio" name="timeline" value="This month" required />
+                <span><strong>This month</strong><small>We need the first creators moving quickly.</small></span>
+              </label>
+              <label class="choice-row compact-choice">
+                <input type="radio" name="timeline" value="Back-to-school" />
+                <span><strong>Back-to-school</strong><small>Build now for a cleaner fall push.</small></span>
+              </label>
+              <label class="choice-row compact-choice">
+                <input type="radio" name="timeline" value="Exploring" />
+                <span><strong>Exploring</strong><small>We want to understand the right pilot.</small></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="onboarding-step confirm-step" data-step="4">
+            <p class="modal-eyebrow">Google Meet request</p>
+            <h2>Confirm the campus layer.</h2>
+            <p>We’ll use this to send the right one-pager and a short Google Meet link.</p>
+            <div class="confirm-card" aria-label="Onboarding summary">
+              <div><span>Name</span><strong data-summary="name">-</strong></div>
+              <div><span>Email</span><strong data-summary="email">-</strong></div>
+              <div><span>Company</span><strong data-summary="company">-</strong></div>
+              <div><span>Goal</span><strong data-summary="goal">-</strong></div>
+              <div><span>Schools</span><strong data-summary="campuses">-</strong></div>
+              <div><span>Timeline</span><strong data-summary="timeline">-</strong></div>
+            </div>
+          </div>
+
+          <p class="form-error" data-form-error role="alert"></p>
+
+          <footer class="onboarding-footer">
+            <button class="onboarding-back" type="button" data-onboarding-back disabled>&larr; Back</button>
+            <button class="onboarding-next" type="button" data-onboarding-next>Continue <span>&rarr;</span></button>
+            <button class="onboarding-submit" type="submit" data-onboarding-submit hidden>
+              <svg class="meet-logo" viewBox="0 0 64 64" aria-hidden="true">
+                <path fill="#34A853" d="M8 18c0-3.3 2.7-6 6-6h24c3.3 0 6 2.7 6 6v28c0 3.3-2.7 6-6 6H14c-3.3 0-6-2.7-6-6V18Z" />
+                <path fill="#188038" d="M44 26 56 17.5c1.8-1.3 4 .1 4 2.3v24.4c0 2.2-2.5 3.5-4.2 2.1L44 37V26Z" />
+                <path fill="#FBBC04" d="M8 26h36v11H8V26Z" />
+                <path fill="#4285F4" d="M8 18c0-3.3 2.7-6 6-6h30v14H8v-8Z" />
+                <path fill="#EA4335" d="M8 37h36v9c0 3.3-2.7 6-6 6H14c-3.3 0-6-2.7-6-6v-9Z" />
+              </svg>
+              Request Google Meet
+            </button>
+          </footer>
+        </form>
+      </section>
+    </div>
 
     <script src="script.js"></script>
   </body>
