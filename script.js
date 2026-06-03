@@ -1,4 +1,3 @@
-const header = document.querySelector(".site-header");
 const onboarding = document.querySelector("[data-onboarding]");
 const onboardingForm = document.querySelector("[data-onboarding-form]");
 const onboardingOpenButtons = document.querySelectorAll("[data-onboarding-open]");
@@ -12,14 +11,6 @@ const submitButton = document.querySelector("[data-onboarding-submit]");
 const formError = document.querySelector("[data-form-error]");
 
 let currentOnboardingStep = 0;
-
-function syncHeader() {
-  if (!header) return;
-  header.classList.toggle("is-scrolled", window.scrollY > 24);
-}
-
-syncHeader();
-window.addEventListener("scroll", syncHeader, { passive: true });
 
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener("click", (event) => {
@@ -227,21 +218,4 @@ if (revealEls.length) {
   );
 
   revealEls.forEach((el) => revealObserver.observe(el));
-}
-
-// ── Sticky bar ───────────────────────────────────────────────────
-const stickyBar = document.getElementById("sticky-bar");
-const heroSection = document.querySelector(".hero");
-
-if (stickyBar && heroSection) {
-  const stickyObserver = new IntersectionObserver(
-    (entries) => {
-      const heroVisible = entries[0].isIntersecting;
-      stickyBar.classList.toggle("is-visible", !heroVisible);
-      stickyBar.setAttribute("aria-hidden", heroVisible ? "true" : "false");
-    },
-    { threshold: 0, rootMargin: "0px 0px -80px 0px" }
-  );
-
-  stickyObserver.observe(heroSection);
 }

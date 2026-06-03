@@ -9,21 +9,23 @@
       content="Circuit builds and manages college creator programs for consumer brands: student ambassadors, UGC, school pods, tracked actions, and field intelligence."
     />
     <link rel="icon" href="assets/circuit-mark.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/favicon-16.png" sizes="16x16" type="image/png" />
+    <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="assets/favicon-192.png" sizes="192x192" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,800;1,9..144,300;1,9..144,400;1,9..144,700;1,9..144,800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,800;1,9..144,300;1,9..144,400;1,9..144,700;1,9..144,800&family=Geist:wght@400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="sticky-bar" id="sticky-bar" aria-hidden="true">
-      <span class="sticky-bar-label">Circuit — College creator programs</span>
-      <button class="sticky-bar-cta" type="button" data-onboarding-open>Build my layer</button>
-    </div>
-
     <header class="site-header" aria-label="Primary">
       <a class="brand" href="#top" aria-label="Circuit home">
         <img class="brand-logo" src="assets/circuit-wordmark.png" alt="Circuit" />
       </a>
+      <button class="login-cta" type="button" data-onboarding-open>
+        <span>Log in / Sign up</span>
+      </button>
     </header>
 
     <main id="top">
@@ -50,7 +52,10 @@
             launch channel brands can actually scale.
           </p>
           <div class="hero-actions" aria-label="Primary actions">
-            <button class="primary-button" type="button" data-onboarding-open>Build my college layer</button>
+            <button class="primary-button meet-cta" type="button" data-onboarding-open>
+              <img src="assets/logos/google-meet-icon.png" alt="" />
+              <span>Build my college layer</span>
+            </button>
             <a class="ghost-button" href="#system">See how it works</a>
           </div>
         </div>
@@ -61,7 +66,6 @@
           <figure class="community-poster">
             <img src="assets/pinterest-table-friends.jpg" alt="Students gathered around a table on campus" />
             <figcaption>
-              <img src="assets/circuit-wordmark.png" alt="Circuit" />
               <span>Become a campus lead</span>
               <strong>Turn your school into the launch channel.</strong>
               <small>Pods, missions, links, proof, payouts.</small>
