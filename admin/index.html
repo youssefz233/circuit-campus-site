@@ -476,7 +476,7 @@
       }).join('');
 
       document.querySelectorAll('.copy').forEach((b) => b.onclick = () => {
-        const url = INVITE_BASE + '/welcome?id=' + encodeURIComponent(b.dataset.token);
+        const url = INVITE_BASE + '/ambassadors?id=' + encodeURIComponent(b.dataset.token);
         navigator.clipboard?.writeText(url).then(() => {
           b.classList.add('done'); b.textContent = 'Copied!';
           setTimeout(() => { b.classList.remove('done'); b.innerHTML = copyBtnHTML({ token: b.dataset.token }).replace(/^<button[^>]*>|<\/button>$/g, ''); }, 1400);
@@ -496,7 +496,7 @@
       const lines = [head.join(',')].concat(rows.map((r) => [
         r.name, r.email, r.school, BADGE[statusOf(r)], r.created_at, r.opened_at,
         r.video_played, r.discord_clicked, r.growi_clicked, r.notion_clicked, r.last_seen_at, r.onboarded_at,
-        INVITE_BASE + '/welcome?id=' + r.token,
+        INVITE_BASE + '/ambassadors?id=' + r.token,
       ].map(cell).join(',')));
       const blob = new Blob([lines.join('\n')], { type: 'text/csv' });
       const a = document.createElement('a');
@@ -596,7 +596,7 @@
           if (error) throw error;
           const row = act.closest('.pend');
           if (approve) {
-            const link = INVITE_BASE + '/welcome?id=' + data;
+            const link = INVITE_BASE + '/ambassadors?id=' + data;
             row.outerHTML = `<div class="approved-link">✓ Approved · send them: <code>${esc(link)}</code> <button class="copy" data-copy="${esc(link)}">Copy</button></div>`;
           } else { row.remove(); }
           loadPending(passcode); loadRewards(passcode);
