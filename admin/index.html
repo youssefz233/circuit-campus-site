@@ -175,6 +175,64 @@
 
     .empty { padding: 48px 20px; text-align: center; color: var(--muted); font-size: 14px; }
 
+    /* tabs */
+    .tabs { display: flex; gap: 18px; margin-bottom: 22px; border-bottom: 1px solid var(--line); }
+    .tab { height: 42px; padding: 0; margin-bottom: -1px; background: none; border: 0; border-bottom: 2px solid transparent;
+      font-size: 14.5px; font-weight: 700; color: var(--muted); display: inline-flex; align-items: center; gap: 7px; }
+    .tab:hover { color: var(--text); }
+    .tab.on { color: var(--ink); border-bottom-color: var(--blue); }
+    .tcount { font-size: 11.5px; font-weight: 800; background: rgba(198,134,25,0.16); color: var(--amber); border-radius: 999px; padding: 2px 7px; }
+    .tcount.zero { background: var(--soft); color: var(--muted); }
+    .sec-title { font-size: 12px; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+    #view-referrals .sec-title + .panel + .sec-title { margin-top: 28px; }
+
+    /* pending applicants */
+    .pend { display: flex; align-items: center; gap: 14px; padding: 15px 16px; border-bottom: 1px solid var(--line); }
+    .pend:last-child { border-bottom: 0; }
+    .pend.flag { background: linear-gradient(0deg, rgba(189,61,54,0.05), rgba(189,61,54,0.05)), #fff; }
+    .pend .pinfo { flex: 1; min-width: 0; }
+    .pend .pinfo .nm { font-weight: 700; color: var(--ink); }
+    .pend .pinfo .em { font-size: 12.5px; color: var(--muted); }
+    .pend .pinfo .mt { font-size: 12px; color: var(--muted); margin-top: 3px; }
+    .pend .pinfo .mt b { color: var(--text); font-weight: 600; }
+    .pend .pact { display: flex; gap: 8px; flex: none; }
+    .btn-approve { height: 36px; padding: 0 14px; border: 0; border-radius: 9px; background: var(--green); color: #fff; font-size: 13px; font-weight: 700; }
+    .btn-approve:hover { filter: brightness(1.05); }
+    .btn-reject { height: 36px; padding: 0 12px; border: 1px solid var(--line); border-radius: 9px; background: #fff; color: var(--muted); font-size: 13px; font-weight: 600; }
+    .btn-reject:hover { color: var(--red); border-color: rgba(189,61,54,0.4); }
+    .flagchip { font-size: 10px; font-weight: 800; color: var(--red); background: rgba(189,61,54,0.1); border-radius: 999px; padding: 2px 7px; margin-left: 7px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .approved-link { padding: 13px 16px; background: rgba(14,122,87,0.06); border-bottom: 1px solid var(--line); font-size: 13px; color: var(--text); display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .approved-link code { background: #fff; border: 1px solid var(--line); border-radius: 7px; padding: 4px 8px; font-size: 12px; word-break: break-all; }
+
+    /* leaderboard + ledger */
+    .lb { display: flex; align-items: center; gap: 14px; padding: 13px 16px; border-bottom: 1px solid var(--line); }
+    .lb:last-child { border-bottom: 0; }
+    .lb .rank { width: 22px; font-weight: 800; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .lb .who { flex: 1; min-width: 0; }
+    .lb .who .nm { font-weight: 700; color: var(--ink); }
+    .lb .who .em { font-size: 12.5px; color: var(--muted); }
+    .lb .nums { display: flex; gap: 20px; text-align: right; }
+    .lb .nums .n { font-size: 11.5px; color: var(--muted); }
+    .lb .nums .n b { display: block; font-size: 16px; color: var(--ink); font-weight: 800; }
+    .lb .nums .n.money b { color: var(--green); }
+    .led { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); font-size: 13.5px; }
+    .led:last-child { border-bottom: 0; }
+    .led.paid { opacity: 0.55; }
+    .led .amt { font-weight: 800; color: var(--ink); width: 50px; }
+    .led .kind { font-size: 10.5px; font-weight: 800; padding: 3px 8px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.03em; }
+    .led .kind.referral { background: rgba(21,94,239,0.1); color: var(--blue); }
+    .led .kind.milestone { background: rgba(123,97,255,0.12); color: #7b61ff; }
+    .led .desc { flex: 1; min-width: 0; }
+    .led .desc .who2 { font-weight: 600; color: var(--ink); }
+    .led .desc .nt { font-size: 12px; color: var(--muted); }
+    .led .markpaid { height: 32px; padding: 0 12px; border: 1px solid var(--line); border-radius: 8px; background: #fff; font-size: 12.5px; font-weight: 600; color: var(--text); }
+    .led .markpaid:hover { border-color: var(--green); color: var(--green); }
+    .led .paidtag { font-size: 12px; font-weight: 700; color: var(--green); }
+    @media (max-width: 760px) {
+      .lb .nums { gap: 14px; }
+      .pend { flex-wrap: wrap; }
+    }
+
     /* mobile cards */
     .mcards { display: none; }
     .mcard { padding: 15px 16px; border-bottom: 1px solid var(--line); }
@@ -240,26 +298,41 @@
     <h2 class="page-title">Onboarding <em>funnel</em></h2>
     <p class="subtle" id="meta-line">&nbsp;</p>
 
-    <div class="funnel" id="funnel"></div>
-    <div class="bar" id="bar"></div>
-    <div class="alerts" id="alerts"></div>
+    <nav class="tabs" id="tabs">
+      <button class="tab on" data-v="onboarding" type="button">Onboarding</button>
+      <button class="tab" data-v="pending" type="button">Pending <span class="tcount zero" id="tab-pending-c">0</span></button>
+      <button class="tab" data-v="referrals" type="button">Referrals</button>
+    </nav>
 
-    <div class="toolbar">
-      <div class="pills" id="pills"></div>
-      <input class="search" id="search" type="search" placeholder="Search name, email, school" />
+    <div id="view-onboarding">
+      <div class="funnel" id="funnel"></div>
+      <div class="bar" id="bar"></div>
+      <div class="alerts" id="alerts"></div>
+      <div class="toolbar">
+        <div class="pills" id="pills"></div>
+        <input class="search" id="search" type="search" placeholder="Search name, email, school" />
+      </div>
+      <div class="panel">
+        <table>
+          <thead>
+            <tr><th>Ambassador</th><th>School</th><th>Progress</th><th>Status</th><th>Invited</th><th>Last seen</th><th></th></tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+        <div class="mcards" id="mcards"></div>
+        <div class="empty" id="empty" hidden>No ambassadors match this view.</div>
+      </div>
     </div>
 
-    <div class="panel">
-      <table>
-        <thead>
-          <tr>
-            <th>Ambassador</th><th>School</th><th>Progress</th><th>Status</th><th>Invited</th><th>Last seen</th><th></th>
-          </tr>
-        </thead>
-        <tbody id="tbody"></tbody>
-      </table>
-      <div class="mcards" id="mcards"></div>
-      <div class="empty" id="empty" hidden>No ambassadors match this view.</div>
+    <div id="view-pending" hidden>
+      <div class="panel" id="pending-panel"></div>
+    </div>
+
+    <div id="view-referrals" hidden>
+      <h3 class="sec-title">Top referrers</h3>
+      <div class="panel" id="leaderboard-panel"></div>
+      <h3 class="sec-title">Reward ledger</h3>
+      <div class="panel" id="ledger-panel"></div>
     </div>
   </div>
 
@@ -280,6 +353,8 @@
 
     const $ = (id) => document.getElementById(id);
     let ROWS = [];
+    let PENDING = [];
+    let REWARDS = { leaderboard: [], ledger: [] };
     let activeFilter = 'all';
     let query = '';
 
@@ -436,7 +511,111 @@
       ROWS = (data || []).slice().sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
       $('meta-line').textContent = ROWS.length + ' ambassadors · refreshed ' + new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
       render();
+      // roster passcode is validated, so these are safe; they swallow their own errors
+      await loadPending(passcode);
+      await loadRewards(passcode);
     }
+
+    const money = (c) => '$' + Math.round((c || 0) / 100);
+
+    async function loadPending(passcode) {
+      try {
+        const { data, error } = await sb.rpc('circuit_admin_pending', { p_secret: passcode });
+        if (error) throw error;
+        PENDING = data || [];
+        renderPending();
+      } catch (e) { console.error('pending load failed', e); }
+    }
+    function renderPending() {
+      $('tab-pending-c').textContent = PENDING.length;
+      $('tab-pending-c').classList.toggle('zero', PENDING.length === 0);
+      const refCounts = {};
+      PENDING.forEach((p) => { refCounts[p.referrer_id] = (refCounts[p.referrer_id] || 0) + 1; });
+      const panel = $('pending-panel');
+      if (!PENDING.length) { panel.innerHTML = '<div class="empty">No pending applications. Referred friends will show up here to approve.</div>'; return; }
+      panel.innerHTML = PENDING.map((p) => {
+        const flag = (p.email || '').includes('+') || refCounts[p.referrer_id] >= 4;
+        return `<div class="pend ${flag ? 'flag' : ''}">
+          <div class="pinfo">
+            <div class="nm">${esc(p.name || '·')}${flag ? '<span class="flagchip">review</span>' : ''}</div>
+            <div class="em">${esc(p.email || '')}</div>
+            <div class="mt">${esc(p.school || '·')} · referred by <b>${esc(p.referrer_name || '·')}</b> · ${rel(p.applied_at)}</div>
+          </div>
+          <div class="pact">
+            <button class="btn-reject" data-act="reject" data-id="${esc(p.id)}">Reject</button>
+            <button class="btn-approve" data-act="approve" data-id="${esc(p.id)}">Approve</button>
+          </div>
+        </div>`;
+      }).join('');
+    }
+
+    async function loadRewards(passcode) {
+      try {
+        const { data, error } = await sb.rpc('circuit_admin_rewards', { p_secret: passcode });
+        if (error) throw error;
+        REWARDS = data || { leaderboard: [], ledger: [] };
+        renderRewards();
+      } catch (e) { console.error('rewards load failed', e); }
+    }
+    function renderRewards() {
+      const lb = REWARDS.leaderboard || [], led = REWARDS.ledger || [];
+      $('leaderboard-panel').innerHTML = lb.length ? lb.map((r, i) => `
+        <div class="lb">
+          <div class="rank">${i + 1}</div>
+          <div class="who"><div class="nm">${esc(r.name || '·')}</div><div class="em">${esc(r.email || '')}</div></div>
+          <div class="nums">
+            <div class="n"><b>${r.qualified || 0}</b>qualified</div>
+            <div class="n"><b>${r.total_referred || 0}</b>referred</div>
+            <div class="n money"><b>${money(r.pending_cents)}</b>pending</div>
+          </div>
+        </div>`).join('') : '<div class="empty">No referrals yet.</div>';
+      $('ledger-panel').innerHTML = led.length ? led.map((x) => `
+        <div class="led ${x.status === 'paid' ? 'paid' : ''}">
+          <div class="amt">${money(x.amount_cents)}</div>
+          <span class="kind ${esc(x.kind)}">${esc(x.kind)}</span>
+          <div class="desc"><div class="who2">${esc(x.referrer_name || '·')}</div><div class="nt">${esc(x.note || '')} · ${rel(x.created_at)}</div></div>
+          ${x.status === 'paid' ? '<span class="paidtag">Paid</span>' : `<button class="markpaid" data-id="${esc(x.id)}">Mark paid</button>`}
+        </div>`).join('') : '<div class="empty">No rewards yet.</div>';
+    }
+
+    function switchView(v) {
+      ['onboarding', 'pending', 'referrals'].forEach((x) => { $('view-' + x).hidden = x !== v; });
+      document.querySelectorAll('.tab').forEach((t) => t.classList.toggle('on', t.dataset.v === v));
+    }
+    $('tabs').addEventListener('click', (e) => { const t = e.target.closest('.tab'); if (t) switchView(t.dataset.v); });
+
+    // approve / reject / mark-paid / copy (delegated)
+    document.addEventListener('click', async (e) => {
+      const passcode = sessionStorage.getItem('circuitAdminPass');
+      const act = e.target.closest('[data-act]');
+      if (act && passcode) {
+        const id = act.dataset.id, approve = act.dataset.act === 'approve';
+        act.disabled = true; act.textContent = approve ? 'Approving…' : '…';
+        try {
+          const { data, error } = await sb.rpc('circuit_admin_decide', { p_secret: passcode, p_id: id, p_approve: approve });
+          if (error) throw error;
+          const row = act.closest('.pend');
+          if (approve) {
+            const link = INVITE_BASE + '/welcome?id=' + data;
+            row.outerHTML = `<div class="approved-link">✓ Approved · send them: <code>${esc(link)}</code> <button class="copy" data-copy="${esc(link)}">Copy</button></div>`;
+          } else { row.remove(); }
+          loadPending(passcode); loadRewards(passcode);
+        } catch (err) { console.error(err); toast('Action failed'); act.disabled = false; act.textContent = approve ? 'Approve' : 'Reject'; }
+        return;
+      }
+      const mp = e.target.closest('.markpaid');
+      if (mp && passcode) {
+        mp.disabled = true; mp.textContent = '…';
+        try {
+          const { error } = await sb.rpc('circuit_admin_mark_paid', { p_secret: passcode, p_reward_id: mp.dataset.id });
+          if (error) throw error;
+          loadRewards(passcode);
+        } catch (err) { console.error(err); toast('Failed'); mp.disabled = false; mp.textContent = 'Mark paid'; }
+        return;
+      }
+      const cp = e.target.closest('[data-copy]');
+      if (cp) { navigator.clipboard?.writeText(cp.dataset.copy).then(() => { cp.textContent = 'Copied!'; setTimeout(() => cp.textContent = 'Copy', 1400); }); }
+    });
 
     function openDash() { $('gate').hidden = true; $('dash').hidden = false; }
 
